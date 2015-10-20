@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NitwNotification.iml" filepath="$PROJECT_DIR$/NitwNotification.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/notifations_nitw.iml" filepath="$PROJECT_DIR$/notifations_nitw.iml" />
     </modules>
   </component>
 </project>
