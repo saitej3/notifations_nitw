@@ -1,17 +1,16 @@
 package com.example.saiteja.nitwnotification;
 
-import static com.example.saiteja.nitwnotification.CommonUtilities.SENDER_ID;
-import static com.example.saiteja.nitwnotification.CommonUtilities.SERVER_URL;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class RegisterActivity extends Activity {
-	AlertDialogManager alert = new AlertDialogManager();
-	
+
 	// Internet detector
 	ConnectionDetector cd;
 	
@@ -32,9 +31,9 @@ public class RegisterActivity extends Activity {
 		// Check if Internet present
 		if (!cd.isConnectingToInternet()) {
 			// Internet Connection is not present
-			alert.showAlertDialog(RegisterActivity.this,
+			Toast.makeText(this,
 					"Internet Connection Error",
-					"Please connect to working Internet connection", false);
+					Toast.LENGTH_SHORT);
 			return;
 		}
 
@@ -66,8 +65,10 @@ public class RegisterActivity extends Activity {
 				}else{
 					// user doen't filled that data
 					// ask him to fill the form
-					alert.showAlertDialog(RegisterActivity.this, "Registration Error!", "Please enter your details", false);
-				}
+					Toast.makeText(RegisterActivity.this,
+							"Internet Connection Error",
+							Toast.LENGTH_SHORT);
+					return;				}
 			}
 		});
 	}

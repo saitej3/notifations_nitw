@@ -1,7 +1,5 @@
 package com.example.saiteja.nitwnotification;
 
-import static com.example.saiteja.nitwnotification.CommonUtilities.EXTRA_MESSAGE;
-import static com.example.saiteja.nitwnotification.CommonUtilities.SENDER_ID;
 import static com.example.saiteja.nitwnotification.ServerUtilities.register;
 
 import android.app.Activity;
@@ -25,20 +23,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends Activity {
 
-	// Alert dialog manager
-	AlertDialogManager alert = new AlertDialogManager();
-	
-	// Connection detector
 	ConnectionDetector cd;
 	
 	public static String name;
 	public static String email;
 
 
-	public static final String EXTRA_MESSAGE = "message";
 	public static final String PROPERTY_REG_ID = "115952970439";
 	private static final String PROPERTY_APP_VERSION = "appVersion";
-	private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 	String SENDER_ID = "115952970439";
 
 	static final String TAG = "GCMDemo";
@@ -58,11 +50,10 @@ public class MainActivity extends Activity {
 
 		cd = new ConnectionDetector(getApplicationContext());
 
-		// Check if Internet present
 		if (!cd.isConnectingToInternet()) {
-			alert.showAlertDialog(MainActivity.this,
-					"Internet Connection Error",
-					"Please connect to working Internet connection", false);
+		Toast.makeText(this,
+				"Internet Connection Error",
+				Toast.LENGTH_SHORT);
 			return;
 		}
 
@@ -133,7 +124,7 @@ public class MainActivity extends Activity {
 
 	private void sendRegistrationIdToBackend() {
 
-		register(this,name,email,regid);
+		register(this, name, email, regid);
 	}
 
 
